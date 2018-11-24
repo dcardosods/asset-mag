@@ -18,6 +18,10 @@ export class AssetService {
     return this.http.post(environment.backendUrl + '/assets', asset);
   }
 
+  editAsset(asset: Asset): Observable<Object> {
+    return this.http.put(environment.backendUrl + '/assets/' + asset.id, asset);
+  }
+
   deleteAsset(asset: Asset): Observable<Object> {
     return this.http.delete(environment.backendUrl + '/assets/' + asset.id);
   }

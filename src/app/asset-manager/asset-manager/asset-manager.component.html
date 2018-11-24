@@ -5,7 +5,10 @@
 <ul>
   <li *ngFor="let asset of assets | async">
     {{asset.name}}
+    <button type="button" (click)="showEditForm = !showEditForm">Edit</button>
     <button type="button" (click)="deleteAsset(asset)">Delete</button>
+
+    <app-asset-form [asset]="asset" (submitted)="editAsset($event)" *ngIf="showEditForm"></app-asset-form>
   </li>
 </ul>
 

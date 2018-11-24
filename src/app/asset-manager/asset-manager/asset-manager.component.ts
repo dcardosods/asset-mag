@@ -12,6 +12,7 @@ import { AssetService } from '../asset.service';
 export class AssetManagerComponent implements OnInit {
 
   assets: Observable<Asset[]>;
+  showEditForm = false;
 
   constructor(private assetService: AssetService) { }
 
@@ -26,6 +27,14 @@ export class AssetManagerComponent implements OnInit {
   addAsset(asset: Asset) {
     this.assetService.addAsset(asset)
       .subscribe(() => this.reloadAssets());
+  }
+
+  editAsset(asset: Asset) {
+    this.assetService.editAsset(asset)
+      .subscribe(() => {
+        this.reloadAssets();
+        this.showEditForm = false;
+      });
   }
 
   deleteAsset(asset: Asset) {
