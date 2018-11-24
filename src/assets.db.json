@@ -1,0 +1,10 @@
+{
+  "assets": [
+    {
+      "id": 1,
+      "name": "HP 1000 Printer",
+      "type": "OFFICE_SUPPLY",
+      "quantity": 2
+    }
+  ]
+}
