@@ -5,5 +5,11 @@
 <ul>
   <li *ngFor="let asset of assets | async">
     {{asset.name}}
+    <button type="button" (click)="deleteAsset(asset)">Delete</button>
   </li>
 </ul>
+
+<p>
+  Add new:
+</p>
+<app-asset-form (submitted)="addAsset($event)"></app-asset-form>

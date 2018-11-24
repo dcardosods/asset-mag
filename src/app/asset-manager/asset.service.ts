@@ -13,4 +13,12 @@ export class AssetService {
   getAssets(): Observable<Asset[]> {
     return this.http.get<Asset[]>(environment.backendUrl + '/assets');
   }
+
+  addAsset(asset: Asset): Observable<Object> {
+    return this.http.post(environment.backendUrl + '/assets', asset);
+  }
+
+  deleteAsset(asset: Asset): Observable<Object> {
+    return this.http.delete(environment.backendUrl + '/assets/' + asset.id);
+  }
 }

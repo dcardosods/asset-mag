@@ -16,7 +16,21 @@ export class AssetManagerComponent implements OnInit {
   constructor(private assetService: AssetService) { }
 
   ngOnInit() {
+    this.reloadAssets();
+  }
+
+  reloadAssets() {
     this.assets = this.assetService.getAssets();
+  }
+
+  addAsset(asset: Asset) {
+    this.assetService.addAsset(asset)
+      .subscribe(() => this.reloadAssets());
+  }
+
+  deleteAsset(asset: Asset) {
+    this.assetService.deleteAsset(asset)
+      .subscribe(() => this.reloadAssets());
   }
 
 }

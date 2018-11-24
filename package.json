@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "json-server --watch src/assets.db.json & ng serve",
+    "start": "json-server --watch tmp/assets.db.json & ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "init-db": "cp -f src/assets.db.json tmp/"
   },
   "private": true,
   "dependencies": {

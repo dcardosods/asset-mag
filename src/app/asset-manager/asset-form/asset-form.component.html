@@ -1,0 +1,20 @@
+<form #assetForm="ngForm" (submit)="onSubmit(asset)">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="asset.name" required>
+  </div>
+
+  <div>
+    <label for="type">Type</label>
+    <select class="form-control" id="type" name="type" [(ngModel)]="asset.type" required>
+      <option *ngFor="let type of assetTypes" [value]="type">{{type}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="quantity">Quantity</label>
+    <input type="text" id="quantity" name="quantity" [(ngModel)]="asset.quantity" required>
+  </div>
+
+  <button type="submit" [disabled]="!assetForm.form.valid">Submit</button>
+</form>
