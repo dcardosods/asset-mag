@@ -11,6 +11,7 @@ import { AssetType } from '../asset-type.enum';
 export class AssetFormComponent implements OnInit {
 
   @Input() asset = new Asset();
+  @Input() submitText = 'Submit';
   @Output() submitted = new EventEmitter<Asset>();
 
   assetTypes = Object.keys(AssetType);
