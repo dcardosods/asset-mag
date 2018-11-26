@@ -4,7 +4,21 @@
       "id": 1,
       "name": "HP 1000 Printer",
       "type": "Office equipment",
-      "quantity": 2
+      "quantity": 2,
+      "optionalFields": []
+    },
+    {
+      "id": 2,
+      "name": "Amarok Aventura 2017",
+      "type": "Vehicle",
+      "quantity": 1,
+      "optionalFields": [
+        {
+          "key": "licensePlate",
+          "label": "License plate",
+          "value": "BDK 1090"
+        }
+      ]
     }
   ]
 }
