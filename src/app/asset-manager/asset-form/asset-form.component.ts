@@ -14,7 +14,7 @@ export class AssetFormComponent implements OnInit {
   @Input() submitText = 'Submit';
   @Output() submitted = new EventEmitter<Asset>();
 
-  assetTypes = Object.keys(AssetType);
+  assetTypes = Object.values(AssetType);
 
   constructor() { }
 

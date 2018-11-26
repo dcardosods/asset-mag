@@ -1,5 +1,5 @@
 export enum AssetType {
-  Vehicle = 'VEHICLE',
-  Furniture = 'FURNITURE',
-  OfficeSupply = 'OFFICE_SUPPLY'
+  Vehicle = 'Vehicle',
+  Furniture = 'Furniture',
+  OfficeEquipment = 'Office equipment'
 }

@@ -15,6 +15,7 @@
     </label>
     <select class="form-control" id="type" name="type" [(ngModel)]="asset.type" required
       class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline">
+      <option value="" selected>Choose type...</option>
       <option *ngFor="let type of assetTypes" [value]="type">{{type}}</option>
     </select>
   </div>
