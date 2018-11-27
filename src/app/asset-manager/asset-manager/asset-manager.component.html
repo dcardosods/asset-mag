@@ -14,18 +14,22 @@
 </div>
 
 <ul class="list-reset border rounded shadow">
-  <li *ngFor="let asset of assets | async"
-    class="p-4">
+  <li *ngFor="let asset of assets | async; last as isLast;"
+    class="p-4" [ngClass]="{'border-b': !isLast}">
     <div class="flex">
       <div class="flex-1">
         <div *ngIf="showEditForm !== asset.id">
-          <h3 class="pb-2 text-orange">{{asset.name}}</h3>
-          <div class="pt-2">
-            <span class="rounded-lg bg-orange-lightest text-sm p-2">
+          <h3 class="mb-3 text-orange">{{asset.name}}</h3>
+          <div>
+            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2">
               Type: <span class="font-bold">{{asset.type}}</span>
             </span>
-            <span class="rounded-lg bg-orange-lightest text-sm p-2 ml-2">
+            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2">
               Quantity: <span class="font-bold">{{asset.quantity}}</span>
+            </span>
+            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2"
+              *ngFor="let field of asset.optionalFields">
+              {{field.label}}: <span class="font-bold">{{field.value}}</span>
             </span>
           </div>
         </div>
