@@ -18,6 +18,9 @@
 </div>
 
 <ul class="list-reset border rounded shadow">
+  <li class="px-4 py-1 bg-grey-light text-sm">
+    <app-asset-sorter sortBy="name" (sorted)="reloadAssets($event)"></app-asset-sorter>
+  </li>
   <li *ngFor="let asset of assets | async; last as isLast;"
     class="p-4" [ngClass]="{'border-b': !isLast}">
     <div class="flex">

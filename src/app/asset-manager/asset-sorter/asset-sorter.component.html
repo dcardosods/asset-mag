@@ -1,0 +1,10 @@
+<div (click)="toggleSort()">
+  <span class="align-middle mr-1">{{ sortByLabel }}</span>
+  <button type="button" class="align-middle"
+    [ngSwitch]="direction" *ngIf="!disabled">
+    <img *ngSwitchCase="'asc'" src="assets/arrowUp.svg">
+    <img *ngSwitchCase="'desc'" src="assets/arrowDown.svg">
+    <img *ngSwitchDefault src="assets/arrowUpDown.svg">
+  </button>
+</div>
+
