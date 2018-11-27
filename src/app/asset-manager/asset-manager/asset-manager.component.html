@@ -13,6 +13,10 @@
   </div>
 </div>
 
+<div>
+  <app-asset-filter filterBy="type" [filterOptions]="assetTypes" (filtered)="reloadAssets($event)"></app-asset-filter>
+</div>
+
 <ul class="list-reset border rounded shadow">
   <li *ngFor="let asset of assets | async; last as isLast;"
     class="p-4" [ngClass]="{'border-b': !isLast}">
@@ -48,5 +52,9 @@
         </div>
       </div>
     </div>
+  </li>
+  <li *ngIf="(assets | async)?.length === 0"
+    class="p-4 text-grey">
+    No assets found
   </li>
 </ul>

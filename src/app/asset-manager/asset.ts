@@ -8,7 +8,7 @@ interface OptionalField {
 
 export class Asset {
   id?: number;
-  name: String;
+  name: string;
   type: AssetType;
   quantity: number;
   optionalFields: OptionalField[] = [];

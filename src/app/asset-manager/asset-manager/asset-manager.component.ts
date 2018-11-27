@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { AssetType } from '../asset-type.enum';
 import { Asset } from '../asset';
 import { AssetService } from '../asset.service';
 
@@ -14,6 +15,7 @@ export class AssetManagerComponent implements OnInit {
   assets: Observable<Asset[]>;
   showAddForm = false;
   showEditForm = 0;
+  assetTypes = Object.values(AssetType);
 
   constructor(private assetService: AssetService) { }
 
@@ -21,8 +23,8 @@ export class AssetManagerComponent implements OnInit {
     this.reloadAssets();
   }
 
-  reloadAssets() {
-    this.assets = this.assetService.getAssets();
+  reloadAssets(filter?: object) {
+    this.assets = this.assetService.getAssets(filter);
   }
 
   addAsset(asset: Asset) {

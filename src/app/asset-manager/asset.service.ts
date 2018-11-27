@@ -10,19 +10,19 @@ export class AssetService {
 
   constructor(private http: HttpClient) { }
 
-  getAssets(): Observable<Asset[]> {
-    return this.http.get<Asset[]>(environment.backendUrl + '/assets');
+  getAssets(queryParams?): Observable<Asset[]> {
+    return this.http.get<Asset[]>(environment.backendUrl + '/assets', {params: queryParams});
   }
 
-  addAsset(asset: Asset): Observable<Object> {
+  addAsset(asset: Asset): Observable<object> {
     return this.http.post(environment.backendUrl + '/assets', asset);
   }
 
-  editAsset(asset: Asset): Observable<Object> {
+  editAsset(asset: Asset): Observable<object> {
     return this.http.put(environment.backendUrl + '/assets/' + asset.id, asset);
   }
 
-  deleteAsset(asset: Asset): Observable<Object> {
+  deleteAsset(asset: Asset): Observable<object> {
     return this.http.delete(environment.backendUrl + '/assets/' + asset.id);
   }
 }
