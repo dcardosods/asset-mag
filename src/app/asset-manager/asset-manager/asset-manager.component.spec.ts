@@ -8,9 +8,8 @@ describe('AssetManagerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetManagerComponent ]
-    })
-    .compileComponents();
+      declarations: [AssetManagerComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

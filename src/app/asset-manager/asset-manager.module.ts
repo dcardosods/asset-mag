@@ -11,15 +11,18 @@ import { AssetFilterComponent } from './asset-filter/asset-filter.component';
 import { AssetSorterComponent } from './asset-sorter/asset-sorter.component';
 
 @NgModule({
-  declarations: [AssetManagerComponent, AssetFormComponent, AssetFilterComponent, AssetSorterComponent],
+  declarations: [
+    AssetManagerComponent,
+    AssetFormComponent,
+    AssetFilterComponent,
+    AssetSorterComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    AssetManagerRoutingModule
+    AssetManagerRoutingModule,
   ],
-  providers: [
-    AssetService
-  ]
+  providers: [AssetService],
 })
-export class AssetManagerModule { }
+export class AssetManagerModule {}

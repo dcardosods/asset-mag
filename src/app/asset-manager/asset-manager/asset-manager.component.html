@@ -3,61 +3,99 @@
     <h2 class="text-orange">
       My assets
     </h2>
-    <button type="button" (click)="toggleAddForm()" *ngIf="!showAddForm"
-      class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    <button
+      type="button"
+      (click)="toggleAddForm()"
+      *ngIf="!showAddForm"
+      class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >
       Add new
     </button>
   </div>
   <div class="pt-4">
-    <app-asset-form [submitText]="'Add new'" (submitted)="addAsset($event)" *ngIf="showAddForm"></app-asset-form>
+    <app-asset-form
+      [submitText]="'Add new'"
+      (submitted)="addAsset($event)"
+      *ngIf="showAddForm"
+    ></app-asset-form>
   </div>
 </div>
 
 <div>
-  <app-asset-filter filterBy="type" [filterOptions]="assetTypes" (filtered)="reloadAssets($event)"></app-asset-filter>
+  <app-asset-filter
+    filterBy="type"
+    [filterOptions]="assetTypes"
+    (filtered)="reloadAssets($event)"
+  ></app-asset-filter>
 </div>
 
 <ul class="list-reset border rounded shadow">
   <li class="px-4 py-1 bg-grey-light text-sm">
-    <app-asset-sorter sortBy="name" (sorted)="reloadAssets($event)"></app-asset-sorter>
+    <app-asset-sorter
+      sortBy="name"
+      (sorted)="reloadAssets($event)"
+    ></app-asset-sorter>
   </li>
-  <li *ngFor="let asset of assets | async; last as isLast;"
-    class="p-4" [ngClass]="{'border-b': !isLast}">
+  <li
+    *ngFor="let asset of (assets | async); last as isLast"
+    class="p-4"
+    [ngClass]="{ 'border-b': !isLast }"
+  >
     <div class="flex">
       <div class="flex-1">
         <div *ngIf="showEditForm !== asset.id">
-          <h3 class="mb-3 text-orange">{{asset.name}}</h3>
+          <h3 class="mb-3 text-orange">{{ asset.name }}</h3>
           <div>
-            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2">
-              Type: <span class="font-bold">{{asset.type}}</span>
+            <span
+              class="inline-block rounded-lg bg-orange-lightest text-sm p-2"
+            >
+              Type: <span class="font-bold">{{ asset.type }}</span>
             </span>
-            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2">
-              Quantity: <span class="font-bold">{{asset.quantity}}</span>
+            <span
+              class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2"
+            >
+              Quantity: <span class="font-bold">{{ asset.quantity }}</span>
             </span>
-            <span class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2"
-              *ngFor="let field of asset.optionalFields">
-              {{field.label}}: <span class="font-bold">{{field.value}}</span>
+            <span
+              class="inline-block rounded-lg bg-orange-lightest text-sm p-2 ml-2"
+              *ngFor="let field of asset.optionalFields"
+            >
+              {{ field.label }}:
+              <span class="font-bold">{{ field.value }}</span>
             </span>
           </div>
         </div>
-        <app-asset-form [asset]="asset" [submitText]="'Confirm edit'" (submitted)="editAsset($event)" *ngIf="showEditForm === asset.id"></app-asset-form>
+        <app-asset-form
+          [asset]="asset"
+          [submitText]="'Confirm edit'"
+          (submitted)="editAsset($event)"
+          *ngIf="showEditForm === asset.id"
+        ></app-asset-form>
       </div>
-      <div class="pl-4 flex items-end" [ngClass]="{'invisible': showEditForm === asset.id}">
+      <div
+        class="pl-4 flex items-end"
+        [ngClass]="{ invisible: showEditForm === asset.id }"
+      >
         <div>
-            <button type="button" (click)="toggleEditForm(asset.id)"
-            class="bg-grey hover:bg-grey-dark text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+          <button
+            type="button"
+            (click)="toggleEditForm(asset.id)"
+            class="bg-grey hover:bg-grey-dark text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+          >
             Edit
           </button>
-          <button type="button" (click)="deleteAsset(asset)"
-            class="bg-red hover:bg-red-dark text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline m-2">
+          <button
+            type="button"
+            (click)="deleteAsset(asset)"
+            class="bg-red hover:bg-red-dark text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline m-2"
+          >
             Delete
           </button>
         </div>
       </div>
     </div>
   </li>
-  <li *ngIf="(assets | async)?.length === 0"
-    class="p-4 text-grey">
+  <li *ngIf="(assets | async)?.length === 0" class="p-4 text-grey">
     No assets found
   </li>
 </ul>

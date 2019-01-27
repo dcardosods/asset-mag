@@ -3,20 +3,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-asset-filter',
   templateUrl: './asset-filter.component.html',
-  styleUrls: ['./asset-filter.component.css']
+  styleUrls: ['./asset-filter.component.css'],
 })
 export class AssetFilterComponent implements OnInit {
-
   @Input() filterBy: string;
   @Input() filterOptions: string[];
   @Output() filtered = new EventEmitter<object>();
 
   currentFilter = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onFilter(currentFilter: string) {
     const filter = {};
@@ -25,5 +23,4 @@ export class AssetFilterComponent implements OnInit {
     }
     this.filtered.emit(filter);
   }
-
 }

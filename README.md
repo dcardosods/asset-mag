@@ -4,6 +4,7 @@ Requirements:
 
 The user will have the ability to create an asset, modify and delete it. Also, he will have the
 ability to view the list of all assets stored in the system. Bonus points:
+
 - filter the asset list based on asset type
 - sort the asset list alphabetically (ascending and descending).
 

@@ -14,12 +14,11 @@ export class Asset {
   optionalFields: OptionalField[] = [];
 
   setType(type: AssetType) {
-    if (type === AssetType.Vehicle
-      && !this.optionalFields.length) {
+    if (type === AssetType.Vehicle && !this.optionalFields.length) {
       this.optionalFields.push({
         key: 'licensePlate',
         label: 'License plate',
-        value: ''
+        value: '',
       });
     } else {
       this.optionalFields = [];

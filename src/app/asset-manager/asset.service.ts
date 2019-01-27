@@ -7,11 +7,12 @@ import { Asset } from './asset';
 
 @Injectable()
 export class AssetService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAssets(queryParams?): Observable<Asset[]> {
-    return this.http.get<Asset[]>(environment.backendUrl + '/assets', {params: queryParams});
+    return this.http.get<Asset[]>(environment.backendUrl + '/assets', {
+      params: queryParams,
+    });
   }
 
   addAsset(asset: Asset): Observable<object> {

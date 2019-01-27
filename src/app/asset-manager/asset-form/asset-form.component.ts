@@ -6,24 +6,21 @@ import { AssetType } from '../asset-type.enum';
 @Component({
   selector: 'app-asset-form',
   templateUrl: './asset-form.component.html',
-  styleUrls: ['./asset-form.component.css']
+  styleUrls: ['./asset-form.component.css'],
 })
 export class AssetFormComponent implements OnInit {
-
   @Input() asset = new Asset();
   @Input() submitText = 'Submit';
   @Output() submitted = new EventEmitter<Asset>();
 
   assetTypes = Object.values(AssetType);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit(asset: Asset) {
     this.submitted.emit(asset);
     this.asset = new Asset();
   }
-
 }
